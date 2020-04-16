@@ -1,0 +1,170 @@
+
+{% extends "layout.html" %}
+
+{% block serviceName %}
+Manage apprenticeships
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Your organisations
+    </h1>
+    <p>
+
+      Add each organisation that will contract with your training providers.
+    </p>
+    <p>
+      There is no restriction on the number of connected organisations you can add.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukTable({
+      classes: "govuk-!-margin-bottom-8",
+      caption: "Your organisations",
+      captionClasses: "govuk-heading-m",
+      head: [
+      {
+        text: "Organisation",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "Agreement status",
+        classes: 'govuk-!-width-one-quarter'
+      },
+      {
+        text: "Action",
+        classes: 'govuk-!-width-one-quarter'
+      },
+      {
+        text: "Agreement ID",
+        classes: 'govuk-!-width-one-third'
+      }
+      ],
+      rows: [
+      [
+      {
+        text: "&APLACE LIMITED"
+      },
+      {
+        text: "Signed by paul peterson"
+      },
+      {
+        html: "<a href='#'>View</a>"
+      },
+      {
+        text: "Y3EVEP"
+      }
+      ],
+      [
+      {
+        text: "ONE OTHER CO LTD"
+      },
+      {
+        text: "Signed by paul peterson"
+      },
+      {
+        html: "<a href='#'>View</a>"
+      },
+      {
+        text: "Y3EVEP"
+      }
+      ],
+      [
+      {
+        text: "ZZZ CORP"
+      },
+      {
+        text: "Signed by paul peterson"
+      },
+      {
+        html: "<a href='#'>View</a>"
+      },
+      {
+        text: "Y3EVEP"
+      }
+      ]
+      ]
+    }) }}
+
+    {% set accordionDescription_version3 %}
+    <p>
+      You have 6 organisations that have not signed this agreement yet.
+    </p>
+    <p class="govuk-caption-m">
+      This agreement was updated on 14 April 2020
+    </p>
+    {% endset %}
+
+    {% set accordionDescription_other %}
+    <p>
+      All of your organisations have signed this agreement.
+    </p>
+    <p class="govuk-caption-m">
+      This agreement was updated on 14 April 2018
+    </p>
+    {% endset %}
+
+    {{ govukAccordion({
+      id: "accordion-with-summary-sections",
+      items: [
+      {
+        heading:
+        {
+          text: "Version 3"
+        },
+        summary:
+        {
+          classes: "govuk-visually-hidden",
+          html: accordionDescription_version3
+        },
+        content:
+        {
+          html: accordionTable
+        }
+      },
+      {
+        heading:
+        {
+          text: "Version 2"
+        },
+        summary:
+        {
+          html: accordionDescription_other
+        },
+        content:
+        {
+          html: accordionTable
+        }
+      },
+      {
+        heading:
+        {
+          text: "Version 1"
+        },
+        summary:
+        {
+          html: accordionDescription_other
+        },
+        content:
+        {
+          html: accordionTable
+        }
+      }
+      ]
+    }) }}
+
+    {{govukDetails({
+      summaryText: "Transfers status: Enabled",
+      text: "You must sign the most up-to-date agreement for all organisations to use transfers functionality."
+    })}}
+  </div>
+</div>
+
+{% endblock %}
