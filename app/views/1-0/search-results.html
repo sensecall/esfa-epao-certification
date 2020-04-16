@@ -10,7 +10,7 @@
 {% block beforeContent %}
 {{govukBackLink({
   href: "javascript: window.history.go(-1)",
-  text: "Back"
+  text: "Search again"
 })}}
 {% endblock %}
 
@@ -22,8 +22,12 @@
       {{pageName}}
     </h1>
 
+    <h2 class="govuk-heading-s">
+      Number of results: 1
+    </h2>
+
     {{ govukTable({
-      caption: "Dates and amounts",
+      classes: "govuk-!-font-size-16",
       head: [
       {
         text: "Name"

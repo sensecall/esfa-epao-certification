@@ -1,35 +1,33 @@
 
 {% extends "layout.html" %}
 
-{% block serviceName %}
-ESFA admin services
-{% endblock %}
+{% set serviceName %}
+ESFA certification
+{% endset %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      EPAO certification
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      {{serviceName}}
+      <span class="govuk-caption-xl">
+        Continuous improvement
+      </span>
     </h1>
-<!-- 
-    <p>
-      <a href="4-0">Version 4</a>
+
+    <p class="govuk-body-l govuk-!-margin-bottom-8">
+      Changes to the EPAO staff admin system to allow users to delete certificates.
     </p>
 
-    <p>
-    	<a href="3-0">Version 3</a>
-    </p>
+    <h2 class="govuk-heading-l">
+      Prototype versions
+    </h2>
 
-    <p>
-    	<a href="2-0">Version 2</a>
-    </p>
- -->
-    <p>
-    	<a href="0-0">As-is</a>
-    </p>
+    <h3 class="govuk-heading-m">
+     <a href="1-0">Version 1-0</a>
+     <span class="govuk-caption-m">16 April 2020</span>
+   </h3>
+ </div>
 
-  </div>
-</div>
-
-{% endblock %}
+ {% endblock %}
