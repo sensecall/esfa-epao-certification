@@ -40,5 +40,10 @@ router.post('/confirm-delete', (req, res, next) => {
 })
 
 router.post('/delete-details', (req, res, next) => {
+	res.redirect('check-answers')
+})
+
+router.post('/check-answers', (req, res, next) => {
+	delete req.session.data['delete-certificate']
 	res.redirect('delete-success')
 })

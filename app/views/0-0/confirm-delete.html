@@ -8,6 +8,10 @@
 {% endblock %}
 
 {% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Back"
+})}}
 {% endblock %}
 
 {% block content %}
@@ -22,7 +26,7 @@
         {
           legend: 
           {
-            text: "Are you sure you want to delete [student name]’s certificate?",
+            text: "Are you sure you want to delete " + data['name'] + "’s certificate from the database?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }

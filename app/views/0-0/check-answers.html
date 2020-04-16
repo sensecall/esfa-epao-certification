@@ -1,0 +1,148 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Check your answers before deleting this certificate" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Back"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    <h2 class="govuk-heading-m">Certificate details</h2>
+
+    <form method="post">
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+        {
+          key:
+          {
+            text: "Apprentice name"
+          },
+          value:
+          {
+            text: data['name']
+          },
+          actions:
+          {
+            items: []
+          }
+        },
+        {
+          key:
+          {
+            text: "ULN"
+          },
+          value:
+          {
+            text: data['uln']
+          },
+          actions:
+          {
+            items: []
+          }
+        },
+        {
+          key:
+          {
+            text: "Certificate number"
+          },
+          value:
+          {
+            text: data['reference']
+          },
+          actions:
+          {
+            items: []
+          }
+        }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Audit details</h2>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+        {
+          key:
+          {
+            text: "Staff member"
+          },
+          value:
+          {
+            text: "Mick CertTea"
+          },
+          actions:
+          {
+            items: []
+          }
+        },
+        {
+          key:
+          {
+            text: "Task or incident number"
+          },
+          value:
+          {
+            text: data['delete-certificate']['ticket-reference'] or "Not applicable"
+          },
+          actions:
+          {
+            items: [
+            {
+              href: "delete-details",
+              text: "Change",
+              visuallyHiddenText: "incident number"
+            }
+            ]
+          }
+        },
+        {
+          key:
+          {
+            text: "Reason for deleting"
+          },
+          value:
+          {
+            html: '<p>' + data['delete-certificate']['reason']| striptags(true) | escape | nl2br + '</p>'
+          },
+          actions:
+          {
+            items: [
+            {
+              href: "delete-details",
+              text: "Change",
+              visuallyHiddenText: "reason for deleting"
+            }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Delete certificate",
+        classes: "govuk-button--warning"
+      }) }}
+    </form>
+
+    <p>
+      <a href="certificate">Cancel and return to search</a>
+    </p>
+  </div>
+
+  {% endblock %}

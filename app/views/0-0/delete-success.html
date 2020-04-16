@@ -16,16 +16,15 @@
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
       {{ govukPanel({
-        titleText: "Certificate deleted",
-        text: "Certificate reference: 00011009"
+        titleText: "You’ve successfully deleted " + data['name'] + "’s certificate from the database"
       }) }}
 
       <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-8">
-        Your details have been logged for auditing blah blah blah.
+        The details you’ve entered have been logged for auditing purposes.
       </p>
 
       {{ govukButton({
-        text: "Return to dashboard",
+        text: "Return to staff dashboard",
         href: "dashboard"
       }) }}
     </form>

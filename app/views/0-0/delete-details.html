@@ -10,7 +10,7 @@
 {% block beforeContent %}
 {{govukBackLink({
   href: "javascript: window.history.go(-1)",
-  text: "Return to dashboard"
+  text: "Back"
 })}}
 {% endblock %}
 
@@ -23,22 +23,23 @@
     </h1>
 
     {{govukInsetText({
-      text: "Certificate reference: 00011009"
+      text: "Certificate reference: " + data['reference']
     })}}
 
     <form method="post">
      {{ govukInput({
       label:
       {
-        text: "Enter the relevant Zendesk ticket number or Servicenow incident number (optional)"
+        text: "Enter the relevant Zendesk ticket number or Servicenow incident number"
       },
+      value: data['delete-certificate']['ticket-reference'] or '',
       classes: "govuk-input--width-20",
       hint:
       {
         text: "For example, 12345, INC012345678 or TASK01234567."
       },
       id: "ticket-reference",
-      name: "ticket-reference",
+      name: "delete-certificate[ticket-reference]",
       attributes:
       {
         spellcheck: "false"
@@ -46,15 +47,20 @@
     }) }}
 
     {{ govukTextarea({
-      name: "more-detail",
-      id: "more-detail",
+      name: "delete-certificate[reason]",
+      id: "reason",
+      value: data['delete-certificate']['reason'] or '',
       label:
       {
-        text: "What’s the reason for deleting this certificate?"
+        text: "What’s the reason for deleting this certificate from the database?"
       },
       hint:
       {
         text: "For example, the apprentice has not completed their end-point assessment."
+      },
+      attributes:
+      {
+        style: "white-space: pre-wrap;"
       }
     }) }}
 
