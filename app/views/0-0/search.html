@@ -1,0 +1,61 @@
+{% extends "layout_das.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Search" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "dashboard",
+  text: "Return to dashboard"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    {% set hint %}
+    <p>Search using either the:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>certificate reference number</li>
+      <li>unique learner number (ULN)</li>
+      <li>apprentice's name, or</li>
+      <li>EPAO ID</li>
+    </ul>
+    {% endset %}
+
+    <form method="post">
+      {{ govukInput({
+        label:
+        {
+          text: ""
+        },
+        classes: "govuk-input--width-20",
+        hint:
+        {
+          text: hint | safe
+        },
+        id: "account-number",
+        name: "account-number",
+        inputmode: "numeric",
+        pattern: "[0-9]*",
+        attributes: {
+        spellcheck: "false"
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Search"
+    }) }}
+  </form>
+</div>
+
+{% endblock %}

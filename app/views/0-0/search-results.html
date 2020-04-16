@@ -1,0 +1,72 @@
+{% extends "layout_das.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Search results" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "dashboard",
+  text: "Return to dashboard"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    {{ govukTable({
+      caption: "Dates and amounts",
+      head: [
+      {
+        text: "Name"
+      },
+      {
+        text: "ULN"
+      },
+      {
+        text: "Standard"
+      },
+      {
+        text: "Certificate reference"
+      },
+      {
+        text: "Status"
+      },
+      {
+        text: "Updated"
+      }
+      ],
+      rows: [
+      [
+      {
+        html: "<a href='certificate'>Jay Smith</a>"
+      },
+      {
+        text: "35468448643"
+      },
+      {
+        text: "Carpentry and Joinery (239)"
+      },
+      {
+        text: "00011009"
+      },
+      {
+        text: "Printed"
+      },
+      {
+        text: "31 January 2020"
+      }
+      ]
+      ]
+    }) }}
+  </div>
+
+  {% endblock %}

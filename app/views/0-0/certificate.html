@@ -1,0 +1,348 @@
+{% extends "layout_das.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Certificate 00011009" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "dashboard",
+  text: "Return to dashboard"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+      <span class="govuk-caption-xl">Status: Printed</span>
+    </h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Apprentice details</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Test Name1000129421
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <abbr title="Unique learner number">ULN</abbr>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1000129421
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funding model
+            </dt>
+            <dd class="govuk-summary-list__value">
+              36
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Completion status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 - Continuing
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Certificate details</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Certificate number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              00015745
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              EPAO
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BCS, The Chartered Institute for IT
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              EPAO ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              EPA0001
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Standard
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Brewer (294)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Level
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Option
+            </dt>
+            <dd class="govuk-summary-list__value">
+            None                        </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Pass
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Learner start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              31/07/2018
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Achievement date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01/02/2019
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Printed
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l" id="history">History</h2>
+
+        <table class="govuk-table govuk-table--s govuk-!-font-size-16 das-table--responsive">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Date and time</th>
+              <th class="govuk-table__header" scope="col">Action</th>
+              <th class="govuk-table__header" scope="col">User</th>
+              <th class="govuk-table__header" scope="col">Status</th>
+              <th class="govuk-table__header" scope="col">Batch</th>
+              <th class="govuk-table__header" scope="col">Changes</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:30:11</td>
+              <td class="govuk-table__cell" data-label="Action">Printed</td>
+              <td class="govuk-table__cell" data-label="By">
+                PrintFunction<br>
+                <span class="govuk-body-s"></span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Printed</td>
+              <td class="govuk-table__cell" data-label="Batch">163</td>
+              <td class="govuk-table__cell" data-label="Change">
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:39</td>
+              <td class="govuk-table__cell" data-label="Action">Submit</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:32</td>
+              <td class="govuk-table__cell" data-label="Action">Recipient</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Name
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  Raj
+                </p>
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Department
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  IT
+                </p>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:20</td>
+              <td class="govuk-table__cell" data-label="Action">Address</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Organisation
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  Learning &amp; Skills Council
+                </p>
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Add Line 1
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  Cheylesmore House
+                </p>
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Add Line 2
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  5 Quinton Road
+                </p>
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Add Line 4
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  Coventry
+                </p>
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Contact Post Code
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  CV1 2WT
+                </p>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:11</td>
+              <td class="govuk-table__cell" data-label="Action">Date</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:09</td>
+              <td class="govuk-table__cell" data-label="Action">Grade</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+                <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                  Overall Grade
+                </p>
+                <p class="govuk-body-s govuk-!-margin-bottom-3">
+                  Pass
+                </p>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:29:06</td>
+              <td class="govuk-table__cell" data-label="Action">Declaration</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">14/04/2020 15:28:38</td>
+              <td class="govuk-table__cell" data-label="Action">Submit</td>
+              <td class="govuk-table__cell" data-label="By">
+                Preprod Epao0001<br>
+                <span class="govuk-body-s">epaomailinator+EPA0001@gmail.com</span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">Submitted</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <a class="govuk-button" href="/select?stdcode=294&amp;uln=1000129421&amp;searchstring=00015745&amp;alllogs=true">Show all history</a>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">What do you want to do next?</h2>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/DuplicateRequest?certificateId=7d907315-6be4-4566-3c41-08d7e08012c2&amp;stdcode=294&amp;uln=1000129421&amp;searchstring=00015745">Request duplicate certificate</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="confirm-delete">Delete certificate</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/Search">Search for another apprentice</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

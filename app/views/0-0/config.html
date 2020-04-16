@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+
+{% block serviceName %}
+Manage apprenticeships
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Config
+		</h1>
+
+		<form method="post">
+			{{ govukSelect({
+				id: "sort",
+				name: "sort",
+				label:
+				{
+					text: "Dashboard version"
+				},
+				items: [
+				{
+					value: "old",
+					text: "Old",
+					selected: true
+				},
+				{
+					value: "new",
+					text: "New"
+				}
+				]
+			}) }}
+
+			{{govukButton({
+				text: "Save"
+			})}}
+		</form>
+	</div>
+</div>
+
+{% endblock %}

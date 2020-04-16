@@ -16,7 +16,7 @@ function createBusinessList(l, i) {
 
 router.post('/config', (req, res, next) => {
 	req.session.data['random-businesses'] = createBusinessList(req.session.data['businesses'].length, req.session.data['orgs-count'])
-	res.redirect('organisations')
+	res.redirect('dashboard')
 })
 
 router.get('/organisations', (req, res, next) => {
@@ -25,4 +25,8 @@ router.get('/organisations', (req, res, next) => {
 	}
 
 	res.render(`${req.version}/organisations`)
+})
+
+router.post('/search', (req, res, next) => {
+	res.redirect('search-results')
 })
