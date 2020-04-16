@@ -30,3 +30,15 @@ router.get('/organisations', (req, res, next) => {
 router.post('/search', (req, res, next) => {
 	res.redirect('search-results')
 })
+
+router.post('/confirm-delete', (req, res, next) => {
+	if(req.session.data['confirm-delete'] == 'yes'){
+		res.redirect('delete-details')
+	} else {
+		res.redirect('certificate')
+	}
+})
+
+router.post('/delete-details', (req, res, next) => {
+	res.redirect('delete-success')
+})

@@ -1,4 +1,4 @@
-{% extends "layout_das.html" %}
+{% extends "layout_epao.html" %}
 {% set serviceName = "Manage apprenticeships" %}
 
 {% set pageName = "Confirm delete" %}
@@ -8,10 +8,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{govukBackLink({
-  href: "dashboard",
-  text: "Return to dashboard"
-})}}
 {% endblock %}
 
 {% block content %}
@@ -19,34 +15,34 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
-    {{ govukRadios({
-      idPrefix: "changed-name",
-      name: "changed-name",
-      fieldset: 
-      {
-        legend: 
+      {{ govukRadios({
+        idPrefix: "confirm-delete",
+        name: "confirm-delete",
+        fieldset: 
         {
-          text: "Are you sure you want to delete [student name]’s certificate?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
+          legend: 
+          {
+            text: "Are you sure you want to delete [student name]’s certificate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
         }
-      },
-      items: [
-      {
-        value: "yes",
-        text: "Yes"
-      },
-      {
-        value: "no",
-        text: "No"
-      }
-      ]
-    }) }}
+        ]
+      }) }}
 
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-  </form>
-</div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
 
-{% endblock %}
+  {% endblock %}

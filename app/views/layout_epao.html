@@ -33,6 +33,10 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+ {% set serviceName %}
+ ESFA admin services 
+ {% endset %}
+
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
@@ -41,14 +45,13 @@
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
   {{ govukHeader({
-    classes: "das-header--employer das-header--has-user-nav",
+    classes: "das-header--epao",
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container govuk-header__container--das-epao"
   }) }}
-  {% include "includes/ma-account-header.html" %}
-  {% include "includes/ma-navbar.html" %}
+  {% include "includes/epao-account-header.html" %}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

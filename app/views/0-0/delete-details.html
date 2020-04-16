@@ -1,0 +1,67 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Enter details about deleting this certificate" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Return to dashboard"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    {{govukInsetText({
+      text: "Certificate reference: 00011009"
+    })}}
+
+    <form method="post">
+     {{ govukInput({
+      label:
+      {
+        text: "Enter the relevant Zendesk ticket number or Servicenow incident number (optional)"
+      },
+      classes: "govuk-input--width-20",
+      hint:
+      {
+        text: "For example, 12345, INC012345678 or TASK01234567."
+      },
+      id: "ticket-reference",
+      name: "ticket-reference",
+      attributes:
+      {
+        spellcheck: "false"
+      }
+    }) }}
+
+    {{ govukTextarea({
+      name: "more-detail",
+      id: "more-detail",
+      label:
+      {
+        text: "What’s the reason for deleting this certificate?"
+      },
+      hint:
+      {
+        text: "For example, the apprentice has not completed their end-point assessment."
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  </form>
+</div>
+
+{% endblock %}

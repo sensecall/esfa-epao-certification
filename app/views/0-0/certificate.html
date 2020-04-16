@@ -1,4 +1,4 @@
-{% extends "layout_das.html" %}
+{% extends "layout_epao.html" %}
 {% set serviceName = "Manage apprenticeships" %}
 
 {% set pageName = "Certificate 00011009" %}
@@ -9,7 +9,7 @@
 
 {% block beforeContent %}
 {{govukBackLink({
-  href: "dashboard",
+  href: "javascript: window.history.go(-1)",
   text: "Return to dashboard"
 })}}
 {% endblock %}
