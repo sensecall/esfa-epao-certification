@@ -1,0 +1,66 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Confirm delete" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Back"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+      {
+        text: "Select whether you want to delete the certificate",
+        href: "#passport-issued-error"
+      }
+      ]
+    }) }}
+
+    <form method="post" action="confirm-delete">
+      {{ govukRadios({
+        idPrefix: "confirm-delete",
+        name: "confirm-delete",
+        fieldset: 
+        {
+          legend: 
+          {
+            text: "Are you sure you want to delete " + data['name'] + "’s certificate from the database?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        errorMessage:
+        {
+          text: "Select whether you want to delete the certificate"
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+
+  {% endblock %}

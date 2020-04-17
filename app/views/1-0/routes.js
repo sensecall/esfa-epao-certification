@@ -34,13 +34,39 @@ router.post('/search', (req, res, next) => {
 router.post('/confirm-delete', (req, res, next) => {
 	if(req.session.data['confirm-delete'] == 'yes'){
 		res.redirect('delete-details')
-	} else {
+	} else if(req.session.data['confirm-delete'] == 'no'){
 		res.redirect('certificate')
+	} else {
+		res.redirect('confirm-delete--errors')
 	}
 })
 
 router.post('/delete-details', (req, res, next) => {
-	res.redirect('check-answers')
+	let ref = req.session.data['delete-certificate']['ticket-reference']
+	let reason = req.session.data['delete-certificate']['reason']
+
+	if(ref.length && reason.length){
+		res.redirect('check-answers')
+	} else {
+		req.session.data['delete-certificate']['error-list'] = []
+		let errorList = req.session.data['delete-certificate']['error-list']
+
+		if(!ref.length){
+			errorList.push({
+				text: "Enter the relevant Zendesk ticket number or Servicenow incident number",
+				href: "#passport-issued-error"
+			})
+		}
+
+		if(!reason.length){
+			errorList.push({
+				text: "Enter the reason for deleting this certificate from the database",
+				href: "#passport-issued-error"
+			})
+		}
+
+		res.redirect('delete-details--errors')
+	}
 })
 
 router.post('/check-answers', (req, res, next) => {
