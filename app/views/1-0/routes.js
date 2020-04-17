@@ -33,6 +33,7 @@ router.post('/search', (req, res, next) => {
 
 router.post('/confirm-delete', (req, res, next) => {
 	if(req.session.data['confirm-delete'] == 'yes'){
+		delete req.session.data['delete-certificate']
 		res.redirect('delete-details')
 	} else if(req.session.data['confirm-delete'] == 'no'){
 		res.redirect('certificate')
@@ -51,17 +52,17 @@ router.post('/delete-details', (req, res, next) => {
 		req.session.data['delete-certificate']['error-list'] = []
 		let errorList = req.session.data['delete-certificate']['error-list']
 
-		if(!ref.length){
+		if(!reason.length){
 			errorList.push({
-				text: "Enter the relevant Zendesk ticket number or Servicenow incident number",
-				href: "#passport-issued-error"
+				text: "Enter a reason for deleting this certificate from the database",
+				href: "#reason"
 			})
 		}
 
-		if(!reason.length){
+		if(!ref.length){
 			errorList.push({
-				text: "Enter the reason for deleting this certificate from the database",
-				href: "#passport-issued-error"
+				text: "Enter a ticket or incident number",
+				href: "#ticket-reference"
 			})
 		}
 

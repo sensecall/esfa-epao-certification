@@ -1,7 +1,7 @@
 {% extends "layout_epao.html" %}
 {% set serviceName = "Manage apprenticeships" %}
 
-{% set pageName = "Enter details about deleting this certificate" %}
+{% set pageName = "Audit details for " + data['name'] + "'s certificate" %}
 
 {% block pageTitle %}
 {{pageName}} - Manage apprentices
@@ -23,51 +23,55 @@
     </h1>
 
     {{govukInsetText({
-      text: "Certificate reference: " + data['reference']
+      text: "Certificate number: " + data['reference']
     })}}
 
     <form method="post">
-     {{ govukInput({
-      label:
-      {
-        text: "Enter the relevant Zendesk ticket number or Servicenow incident number"
-      },
-      value: data['delete-certificate']['ticket-reference'] or '',
-      classes: "govuk-input--width-20",
-      hint:
-      {
-        text: "For example, 12345, INC012345678 or TASK01234567."
-      },
-      id: "ticket-reference",
-      name: "delete-certificate[ticket-reference]",
-      attributes:
-      {
-        spellcheck: "false"
-      }
-    }) }}
+      {{ govukTextarea({
+        classes: "govuk-!-margin-bottom-8",
+        name: "delete-certificate[reason]",
+        id: "reason",
+        value: data['delete-certificate']['reason'] or '',
+        label:
+        {
+          text: "What’s the reason for deleting this certificate from the database?",
+          classes: "govuk-label--m"
+        },
+        hint:
+        {
+          text: "For example, the apprentice has not completed their end-point assessment."
+        },
+        attributes:
+        {
+          style: "white-space: pre-wrap;"
+        }
+      }) }}
 
-    {{ govukTextarea({
-      name: "delete-certificate[reason]",
-      id: "reason",
-      value: data['delete-certificate']['reason'] or '',
-      label:
-      {
-        text: "What’s the reason for deleting this certificate from the database?"
-      },
-      hint:
-      {
-        text: "For example, the apprentice has not completed their end-point assessment."
-      },
-      attributes:
-      {
-        style: "white-space: pre-wrap;"
-      }
-    }) }}
+      {{ govukInput({
+        label:
+        {
+          text: "What’s the relevant Zendesk ticket number or Servicenow incident number?",
+          classes: "govuk-label--m"
+        },
+        value: data['delete-certificate']['ticket-reference'] or '',
+        classes: "govuk-input--width-20",
+        hint:
+        {
+          html: '<p class="govuk-!-margin-bottom-2">If there is not a ticket or incident yet, you must raise one before you delete this certificate.</p>
+            <p class="govuk-hint">For example, 12345, INC012345678 or TASK01234567.</p>'
+        },
+        id: "ticket-reference",
+        name: "delete-certificate[ticket-reference]",
+        attributes:
+        {
+          spellcheck: "false"
+        }
+      }) }}
 
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-  </form>
-</div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
 
-{% endblock %}
+  {% endblock %}
