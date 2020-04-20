@@ -54,7 +54,7 @@ router.post('/delete-details', (req, res, next) => {
 
 		if(!reason.length){
 			errorList.push({
-				text: "Enter a reason for deleting this certificate from the database",
+				text: "Enter a reason for deleting this certificate",
 				href: "#reason"
 			})
 		}
