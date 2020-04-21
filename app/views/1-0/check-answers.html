@@ -90,6 +90,25 @@
           {
             items: []
           }
+        },{
+          key:
+          {
+            text: "Reason for deleting"
+          },
+          value:
+          {
+            html: '<p>' + data['delete-certificate']['reason']| striptags(true) | escape | nl2br + '</p>'
+          },
+          actions:
+          {
+            items: [
+            {
+              href: "delete-details",
+              text: "Change",
+              visuallyHiddenText: "reason for deleting"
+            }
+            ]
+          }
         },
         {
           key:
@@ -107,26 +126,6 @@
               href: "delete-details",
               text: "Change",
               visuallyHiddenText: "incident number"
-            }
-            ]
-          }
-        },
-        {
-          key:
-          {
-            text: "Reason for deleting"
-          },
-          value:
-          {
-            html: '<p>' + data['delete-certificate']['reason']| striptags(true) | escape | nl2br + '</p>'
-          },
-          actions:
-          {
-            items: [
-            {
-              href: "delete-details",
-              text: "Change",
-              visuallyHiddenText: "reason for deleting"
             }
             ]
           }
