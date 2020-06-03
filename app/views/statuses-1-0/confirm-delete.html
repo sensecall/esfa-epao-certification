@@ -1,0 +1,52 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Confirm delete" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Back"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "confirm-delete",
+        name: "confirm-delete",
+        fieldset: 
+        {
+          legend: 
+          {
+            text: "Are you sure you want to delete " + data['name'] + "’s certificate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+
+  {% endblock %}

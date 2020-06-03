@@ -1,0 +1,77 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Audit details" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Back"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    {{govukInsetText({
+      text: "Certificate number: " + data['reference']
+    })}}
+
+    <form method="post">
+      {{ govukTextarea({
+        classes: "govuk-!-margin-bottom-8",
+        name: "delete-certificate[reason]",
+        id: "reason",
+        value: data['delete-certificate']['reason'] or '',
+        label:
+        {
+          text: "What’s the reason for deleting this certificate?",
+          classes: "govuk-label--m"
+        },
+        hint:
+        {
+          text: "For example, the apprentice has not completed their end-point assessment."
+        },
+        attributes:
+        {
+          style: "white-space: pre-wrap;"
+        }
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "What’s the relevant Zendesk ticket number or Servicenow incident number?",
+          classes: "govuk-label--m"
+        },
+        value: data['delete-certificate']['ticket-reference'] or '',
+        classes: "govuk-input--width-20",
+        hint:
+        {
+          html: '<p class="govuk-!-margin-bottom-2">If there is not a ticket or incident yet, you must raise one before you delete this certificate.</p>
+            <p class="govuk-hint">For example, 12345, INC012345678 or TASK01234567.</p>'
+        },
+        id: "ticket-reference",
+        name: "delete-certificate[ticket-reference]",
+        attributes:
+        {
+          spellcheck: "false"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+
+  {% endblock %}

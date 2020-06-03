@@ -1,0 +1,116 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Search results" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+  href: "javascript: window.history.go(-1)",
+  text: "Search again"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    <h2 class="govuk-heading-s">
+      Number of results: 1
+    </h2>
+
+    {{ govukTable({
+      classes: "govuk-!-font-size-16",
+      head: [
+      {
+        text: "Name"
+      },
+      {
+        text: "ULN"
+      },
+      {
+        text: "Standard"
+      },
+      {
+        text: "Certificate reference"
+      },
+      {
+        text: "Status"
+      },
+      {
+        text: "Updated"
+      }
+      ],
+      rows: [
+      [
+      {
+        html: '<a href="certificate?name=Jay Smith&reference=00011009&updated=31 January 2020&status=Printed&uln=35468448643">Jay Smith</a>'
+      },
+      {
+        text: "35468448643"
+      },
+      {
+        text: "Carpentry and Joinery (239)"
+      },
+      {
+        text: "00011009"
+      },
+      {
+        text: "New status"
+      },
+      {
+        text: "31 January 2020"
+      }
+      ],
+      [
+      {
+        html: '<a href="certificate?name=Kay Jones&reference=00011009&updated=31 January 2020&status=Printed&uln=35468448643">Kay Jones</a>'
+      },
+      {
+        text: "35468448643"
+      },
+      {
+        text: "Carpentry and Joinery (239)"
+      },
+      {
+        text: "00011009"
+      },
+      {
+        text: "Other new status"
+      },
+      {
+        text: "31 January 2020"
+      }
+      ],
+      [
+      {
+        html: '<a href="certificate?name=Ell Grey&reference=00011009&updated=31 January 2020&status=Printed&uln=35468448643">Ell Grey</a>'
+      },
+      {
+        text: "35468448643"
+      },
+      {
+        text: "Carpentry and Joinery (239)"
+      },
+      {
+        text: "00011009"
+      },
+      {
+        text: "Printed"
+      },
+      {
+        text: "31 January 2020"
+      }
+      ]
+      ]
+    }) }}
+  </div>
+
+  {% endblock %}

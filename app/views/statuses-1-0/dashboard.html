@@ -1,0 +1,203 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Staff dashboard" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+    </h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="assessment-outcomes-and-certifications">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Assessment outcomes and certifications
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Request certificates reprints, check assessment outcomes and status of certficates.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="search">Search</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="privately-funded-certficate-approvals">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Privately funded certficate approvals
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">A table of privately funded certificates with options to approve, send for approval or reject.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/CertificateApprovals/New">New</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/CertificateApprovals/SentForApproval">Sent for approval</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/CertificateApprovals/Approved">Approved</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/CertificateApprovals/Rejected">Rejected</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half" id="organisation-applications">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Organisation applications
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Review and approve new organisation applications, check on progress, send and receive feedback.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/OrganisationApplication#new">New (2)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/OrganisationApplication#in-progress">In Progress (3)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/OrganisationApplication#feedback">Feedback (2)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/OrganisationApplication#approved">Approved (4)</a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="standard-applications">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Standard applications
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Review and approve new Standard applications, check on progress, send and receive feedback.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/StandardApplication#new">New (4)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/StandardApplication#in-progress">In Progress (0)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/StandardApplication#feedback">Feedback (0)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/StandardApplication#approved">Approved (4)</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="financial-health-assessment">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Financial health assessment
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Review financial health of an organisation.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/Financial/Open">New</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/Financial/Rejected">Rejected</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/Financial/Closed">Closed</a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half" id="registered-epaos">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Registered EPAOs
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Search, view and edit organisations that are currently live on the Register.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/Register">Search</a>
+          </li>
+          <li sfa-show-for-roles="EPA,EPC">
+            <a class="govuk-link" href="/register/add-organisation">Add</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="print-schedule-configurations">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Print schedule configuration
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Create, delete and view existing print schedules.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/ScheduleConfig">View</a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="reports">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Reports
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">On demand reporting</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/Reports">Reports</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="certificate-batch-search">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Certificate batch search
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">View current batches and search for certificates by batch number.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/BatchSearch">Batch search</a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-!-margin-bottom-5" id="record-a-grade-api">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          Record a grade API
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">Manage user's access and generate API keys.</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="/ExternalApi">Users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- need to assign to RoATP roles -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link" href="/Roatp/Financial/Current">Financial</a>
+        </h2>
+        <p class="govuk-body">RoATP Financial</p>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link" href="/Roatp/Applications/Open">Applications</a>
+        </h2>
+        <p class="govuk-body">Review RoATP Applications</p>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link" href="/Roatp/Gateway/New">Gateway</a>
+        </h2>
+        <p class="govuk-body">RoATP Gateway</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
