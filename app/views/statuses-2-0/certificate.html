@@ -1,0 +1,302 @@
+{% extends "layout_epao.html" %}
+{% set serviceName = "Manage apprenticeships" %}
+
+{% set pageName = "Certificate 00011009" %}
+
+{% block pageTitle %}
+{{pageName}} - Manage apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{govukBackLink({
+ href: "javascript: window.history.go(-1)",
+ text: "Back"
+})}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{pageName}}
+      <span class="govuk-caption-xl">Status: {{data['status']}}</span>
+    </h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Apprentice details</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <abbr title="Unique learner number">ULN</abbr>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['uln']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funding model
+            </dt>
+            <dd class="govuk-summary-list__value">
+              36
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Completion status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 - Continuing
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Certificate details</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Certificate number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['reference']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              EPAO
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BCS, The Chartered Institute for IT
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              EPAO ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              EPA0001
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Standard
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Brewer (294)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Level
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Option
+            </dt>
+            <dd class="govuk-summary-list__value">
+            None                        </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Pass
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Learner start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              31/07/2018
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Achievement date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01/02/2019
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['status'] }}
+            </dd>
+          </div>
+          {% if data['status'] == 'Submitted' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date submitted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[DATE]] [[TIME]]
+            </dd>
+          </div>
+          {% elif data['status'] == 'Sent to printer' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date sent to printer
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[DATE]] [[TIME]]
+            </dd>
+          </div>
+          {% elif data['status'] == 'Printed' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date printed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[DATE]] [[TIME]]
+            </dd>
+          </div>
+          {% elif data['status'] == 'Not delivered' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date delivery attempted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[DATE]] [[TIME]]
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sent to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[NAME]]<br>
+              [[ADDRESS]]
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[REASON]]
+            </dd>
+          </div>
+          {% elif data['status'] == 'Delivered' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date delivered
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[DATE]] [[TIME]]
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Delivered to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[NAME]]<br>
+              [[ADDRESS]]
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Comment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[COMMENT]]
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l" id="history">History</h2>
+
+        <table class="govuk-table govuk-table--s govuk-!-font-size-16 das-table--responsive">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Date and time</th>
+              <th class="govuk-table__header" scope="col">Action</th>
+              <th class="govuk-table__header" scope="col">User</th>
+              <th class="govuk-table__header" scope="col">Status</th>
+              <th class="govuk-table__header" scope="col">Batch</th>
+              <th class="govuk-table__header" scope="col">Changes</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" data-label="Date and time">[[DATE]]</td>
+              <td class="govuk-table__cell" data-label="Action">[[ACTION]]</td>
+              <td class="govuk-table__cell" data-label="By">
+                [[USER]]<br>
+                <span class="govuk-body-s"></span>
+              </td>
+              <td class="govuk-table__cell" data-label="Status">[[STATUS]]</td>
+              <td class="govuk-table__cell" data-label="Batch"></td>
+              <td class="govuk-table__cell" data-label="Change">
+               <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                Incident number
+              </p>
+              <p class="govuk-body-s govuk-!-margin-bottom-3">
+                [[NUMBER]]
+              </p>
+
+              <p class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                Reason
+              </p>
+              <p class="govuk-body-s govuk-!-margin-bottom-3">
+                [[REASON]]
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="govuk-button" href="/select?stdcode=294&amp;uln=1000129421&amp;searchstring=00015745&amp;alllogs=true">Show all history</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">What do you want to do next?</h2>
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="/DuplicateRequest?certificateId=7d907315-6be4-4566-3c41-08d7e08012c2&amp;stdcode=294&amp;uln=1000129421&amp;searchstring=00015745">Request duplicate certificate</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="confirm-delete">Delete certificate</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/Search">Search for another apprentice</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

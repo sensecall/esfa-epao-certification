@@ -139,6 +139,8 @@
               01/02/2019
             </dd>
           </div>
+
+          {% if data['certificate-status'] == 'printed' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status
@@ -147,6 +149,8 @@
               Printed
             </dd>
           </div>
+          {% endif %}
+          
         </dl>
       </div>
     </div>
