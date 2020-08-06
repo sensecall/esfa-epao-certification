@@ -178,6 +178,14 @@
           {% elif data['status'] == 'Not delivered' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+              [[REASON]]
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Date delivery attempted
             </dt>
             <dd class="govuk-summary-list__value">
@@ -193,15 +201,15 @@
               [[ADDRESS]]
             </dd>
           </div>
-           <div class="govuk-summary-list__row">
+          {% elif data['status'] == 'Delivered' %}
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Reason
+              Comment
             </dt>
             <dd class="govuk-summary-list__value">
-              [[REASON]]
+              [[COMMENT]]
             </dd>
           </div>
-          {% elif data['status'] == 'Delivered' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date delivered
@@ -217,14 +225,6 @@
             <dd class="govuk-summary-list__value">
               [[NAME]]<br>
               [[ADDRESS]]
-            </dd>
-          </div>
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Comment
-            </dt>
-            <dd class="govuk-summary-list__value">
-              [[COMMENT]]
             </dd>
           </div>
           {% endif %}
